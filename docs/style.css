@@ -1,9 +1,75 @@
-*, *::after, *::before{
-    margin: 0;
-    padding: 0;
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.container-page{
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(#fff,#f5d6bc, #9d7474);
+body {
+  font-family: sans-serif;
+  font-size: 2rem;
+  overflow: hidden;
+}
+.container-page {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(#fff, #f5d6bc, #9d7474);
+}
+.container-game {
+  width: 75%;
+  margin: auto;
+}
+/* Top Layer */
+.grid-top-board{
+    margin-top: 20vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+}
+.btn{
+ margin: auto;
+}
+button{
+    width: 120px;
+    height: 43px;
+    border: none;
+    border-radius: 500px;
+    background-color: #9d7474;
+    color: #f5d6bc;
+    font-size: 1.5rem;
+}
+/* Botton Layer */
+.bottom-board{
+    width: 75vw;
+    height:50vh;
+    background-color: #9d7474;
+    margin-top: 30px;
+    padding: 50px;
+    border-radius: 35px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
+}
+.img-block{
+    border: 3px solid #f5d6bc;
+}
+
+
+/* Desktop */
+@media only screen and (min-width: 720px) {
+  .container-game {
+    width: 50%;
+  }
+  button{
+    width: 140px;
+    height: 45px;
+    border: none;
+    border-radius: 20px;
+    background-color: #9d7474;
+    color: #f5d6bc;
+    font-size: 1.5rem;
+    }
+    .bottom-board{
+        width: 50vw;
+    }
 }
