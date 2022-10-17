@@ -1,14 +1,12 @@
 # Web Developer Study
 ## 12 months web developer study. I decided to dedicate at least 12 months to learn web development.
-## Course (JavaScript Algorithms and Data Structures - freeCodeCamp
+## Memory Game - Created by Priscila (Myself 😁)
 
 ![Begin Banner](/Documentation/top-1200x350.gif)
 
 ### Fifth Month / Sprint(Oct 17/10 - 30/10) 
 * Online courses, challenges and creation of my own projects.
 
-# Memory Game 
-* Created by Priscila (Myself 😁)
 
 <!-- 
 ## What I learned/used (Link for details)
