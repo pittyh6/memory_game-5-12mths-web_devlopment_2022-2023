@@ -1,0 +1,9 @@
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+}
+.container-page{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(#fff,#f5d6bc, #9d7474);
+}
