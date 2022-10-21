@@ -8,7 +8,7 @@ images[5] = '../docs/img/hobby.png'
 images[6] = '../docs/img/sad-crying.png'
 images[7] = '../docs/img/sunglasses.png'
 images[8] = '../docs/img/tears-of-joy.png'
-images[9] = '../docs/img/tongue-put.png'
+images[9] = '../docs/img/tongue-out.png'
 images[10] = '../docs/img/unamused.png'
 images[11] = '../docs/img/wink.png'
    
@@ -23,7 +23,7 @@ btnStart.addEventListener("click",function(){
         $(this).addClass("hasImg")
         for (let i = 0; i < getAllBlock.length; i++) {
             let elem = document.createElement("img");
-            elem.setAttribute("src", images[5])
+            elem.setAttribute("src", images[i])
             elem.setAttribute("width", "100%")
             console.log(getAllBlock[i])
             getAllBlock[i].appendChild(elem)
