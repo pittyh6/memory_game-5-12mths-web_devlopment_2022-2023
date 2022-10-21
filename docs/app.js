@@ -12,22 +12,31 @@ images[5] = '../docs/img/hobby.png'
 // images[10] = '../docs/img/unamused.png'
 // images[11] = '../docs/img/wink.png'
    
-console.log(images.zero)
+
+
+
 let getAllBlock = document.querySelectorAll(".img-block")
-console.log(getAllBlock.length)
 let btnStart = document.querySelector(".btn-start")
 btnStart.addEventListener("click",function(){
     if(btnStart.classList.contains("hasImg")){
-        console.log("has image")
+        console.log("has image class")
     }else{
         $(this).addClass("hasImg")
+        let newImgRandomArr = []
         for (let i = 0; i < getAllBlock.length; i++) {
             let elem = document.createElement("img");
-            elem.setAttribute("src", images[Math.floor(Math.random()* 6)])
-            elem.setAttribute("width", "100%")
-            console.log(getAllBlock[i])
-            getAllBlock[i].appendChild(elem)
+            let randomNumberImage = images[Math.floor(Math.random()* 6)]
+            if(newImgRandomArr.includes(randomNumberImage)){
+                console.log('img already added')
+            }else{
+                newImgRandomArr.push(randomNumberImage)
+                elem.setAttribute("src", randomNumberImage)
+                elem.setAttribute("width", "100%")
+                console.log(getAllBlock[i])
+                getAllBlock[i].appendChild(elem)
+            }
         }
+        console.log(newImgRandomArr)
     }
 
 } )
