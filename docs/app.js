@@ -32,7 +32,7 @@ let newImgObj = []
 
 //ADD IMG TO THE DIVS WHEN START BUTTON IS PRESSED.
 btnStart.addEventListener("click", function (e) {
-    count = 0
+    //count = 0
     if (btnStart.classList.contains("hasImg")) {
         console.log("has image class")
     } else {
@@ -56,11 +56,11 @@ btnStart.addEventListener("click", function (e) {
                 console.log("element in getAllBlock[i] " + getAllBlock[i])
 
 
-                console.log("--- newImgObj start ---")
-                newImgObj.push({id:getAllBlock[i].id, src:getAllBlock[i].firstChild})
+                //console.log("--- newImgObj start ---")
+                newImgObj.push({id:getAllBlock[i].id, position:randomPosition}) // id=image id, position= position set img
                 //newImgObj[i].src[(getAllBlock[i].src)]
-                console.log(newImgObj)
-                console.log("--- newImgObj End ---")
+                //console.log(newImgObj)
+                //console.log("--- newImgObj End ---")
                 
             }
             // }
@@ -72,9 +72,9 @@ btnStart.addEventListener("click", function (e) {
 })
 
 function test(){
-    console.log(" -------- test ----------")
-    console.log(getAllBlock[i].id)
-    console.log(" -------- test ----------")
+    console.log("--- newImgObj start ---")
+    console.log(newImgObj)
+    console.log("--- newImgObj End ---")
 }
 
 
@@ -82,16 +82,22 @@ function test(){
 let count = 1
 let firstClick
 let secondClick
+// let firstId
+// let secondId
 document.querySelector('.bottom-board').addEventListener("click", function (e) {
     
     if (count == 1) {
         firstClick = e.target.src
         console.log("clicked image. First: " + firstClick)
         count = 2
+        // firstId = newImgObj[e.target]
+        // console.log("firstId: " + firstId) 
         // return firstClick
+        console.log(e.target)
     } else {
         secondClick = e.target.src
         console.log("clicked image. Second: " + secondClick)
+        console.log(e.target)
         count = 1
         console.log("check first value: " + firstClick)
         if (firstClick == secondClick) {
@@ -100,6 +106,4 @@ document.querySelector('.bottom-board').addEventListener("click", function (e) {
             console.log("Yeah, Nah.")
         }
     }
-    let text
-    console.log("text: " + (e.target.id))
 })
