@@ -24,22 +24,24 @@ images[11] = 'img/hobby.png'
 let getAllBlock = document.querySelectorAll(".img-block")
 let btnStart = document.querySelector(".btn-start")
 let newImgArr = []
+let newImgObj = []
+
+
+
 
 
 //ADD IMG TO THE DIVS WHEN START BUTTON IS PRESSED.
-btnStart.addEventListener("click", function () {
+btnStart.addEventListener("click", function (e) {
+    count = 0
     if (btnStart.classList.contains("hasImg")) {
         console.log("has image class")
     } else {
         $(this).addClass("hasImg")
-        let newPositionRandomArr = [] // change for not random img but random position..... If full , genarate a new random number until find a free spot
+        let newPositionRandomArr = []
         for (let i = 0; i < getAllBlock.length; i++) {
             let elem = document.createElement("img");
             let randomPosition = Math.floor(Math.random() * 12)
-            console.log(randomPosition)
-            // if(newPositionRandomArr[randomPosition] == null && newPositionRandomArr[randomPosition] == 'undefined'){
-            //     console.log('img already added')
-            // }else{//check if position already has being used.
+            console.log("randomPosition: " + randomPosition)
             if (newPositionRandomArr.includes(randomPosition)) {
                 console.log("contain possition: " + randomPosition)
                 i--
@@ -48,15 +50,32 @@ btnStart.addEventListener("click", function () {
                 elem.setAttribute("src", images[i])
                 elem.setAttribute("width", "100%")
                 console.log(getAllBlock[i])
+                console.log("getAllBlock[i].id: " + getAllBlock[i].id)
                 getAllBlock[randomPosition].appendChild(elem)
-                newImgArr.push(elem, getAllBlock[i])
+                newImgArr.push(elem, getAllBlock[i]) // change for an object that contains img and id of <div>
+                console.log("element in getAllBlock[i] " + getAllBlock[i])
+
+
+                console.log("--- newImgObj start ---")
+                newImgObj.push({id:getAllBlock[i].id, src:getAllBlock[i].firstChild})
+                //newImgObj[i].src[(getAllBlock[i].src)]
+                console.log(newImgObj)
+                console.log("--- newImgObj End ---")
+                
             }
             // }
         }
         console.log(newPositionRandomArr)
         console.log(newImgArr[0])
     }
+    test()
 })
+
+function test(){
+    console.log(" -------- test ----------")
+    console.log(getAllBlock[i].id)
+    console.log(" -------- test ----------")
+}
 
 
 // verify that 2 images are the same.
@@ -64,6 +83,7 @@ let count = 1
 let firstClick
 let secondClick
 document.querySelector('.bottom-board').addEventListener("click", function (e) {
+    
     if (count == 1) {
         firstClick = e.target.src
         console.log("clicked image. First: " + firstClick)
@@ -80,4 +100,6 @@ document.querySelector('.bottom-board').addEventListener("click", function (e) {
             console.log("Yeah, Nah.")
         }
     }
+    let text
+    console.log("text: " + (e.target.id))
 })
