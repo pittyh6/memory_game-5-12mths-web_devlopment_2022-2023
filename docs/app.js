@@ -23,24 +23,31 @@ images[11] = '../docs/img/hobby-2.png'
 
 let getAllBlock = document.querySelectorAll(".img-block")
 let btnStart = document.querySelector(".btn-start")
+
+//ADD IMG TO THE DIVS WHEN START BUTTON IS PRESSED.
 btnStart.addEventListener("click",function(){
     if(btnStart.classList.contains("hasImg")){
         console.log("has image class")
     }else{
         $(this).addClass("hasImg")
-        let newPositionRandomArr = [] // change for not random img but random position..... If full find next empty spot...
+        let newPositionRandomArr = [] // change for not random img but random position..... If full , genarate a new random number until find a free spot
         for (let i = 0; i < getAllBlock.length; i++) {
             let elem = document.createElement("img");
             let randomPosition = Math.floor(Math.random()* 12)
             console.log(randomPosition)
             if(newPositionRandomArr[randomPosition] == null && newPositionRandomArr[randomPosition] == 'undefined'){
                 console.log('img already added')
-            }else{
-                newPositionRandomArr.push(images[i])
-                elem.setAttribute("src", images[i])
-                elem.setAttribute("width", "100%")
-                console.log(getAllBlock[i])
-                getAllBlock[randomPosition].appendChild(elem)
+            }else{//check if position already has been used.
+                if(newPositionRandomArr.includes(randomPosition)){
+                    console.log("contain possition: " + randomPosition)
+                    i--
+                }else{
+                    newPositionRandomArr.push(randomPosition)
+                    elem.setAttribute("src", images[i])
+                    elem.setAttribute("width", "100%")
+                    console.log(getAllBlock[i])
+                    getAllBlock[randomPosition].appendChild(elem)
+                }
             }
         }
         console.log(newPositionRandomArr)
